@@ -2,7 +2,7 @@ NAME = ftprintf.a
 
 CC = gcc
 
-SRC = main.c print.c
+SRC = write.c
 OBJ = $(addprefix $(ODIR),$(SRC:.c=.o))
 
 FLG = -Wall -Werror -Wextra
