@@ -1,11 +1,12 @@
-#include <ftprintf.h>
+#include "ftprintf.h"
 
 
-/* ********************************************************** */
-/*			Printing characters expecting a single "%" 		  */
-/* ********************************************************** */
+/***********************************************************\
+|		Printing characters expecting a single "%" 		    | 
+\***********************************************************/
 
-void	print_mod(char *s)
+
+int	print_mod(const char *s)
 {
 	int i;
 
@@ -17,5 +18,5 @@ void	print_mod(char *s)
 		write(1, &s[i], 1);
 		i++;
 	}
+	return(i + 1);
 }
-

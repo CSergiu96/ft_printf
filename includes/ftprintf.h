@@ -11,7 +11,18 @@ typedef struct	s_list
 	struct s_list	*next;
 }				t_list;
 
-int		ft_printf(const char *format, ...);
+typedef struct 	s_format
+{
+	void	*content;
+	char	flag;
+	int		width;
+	int		precision;
+	int		length;
+	char	*specifier;
+}				t_format;
 
-void	print_mod(char *s);
+int	ft_printf(const char *format, ...);
+
+size_t	ft_strlen(const char *src);
+int	print_mod(const char *s);
 #endif
