@@ -1,5 +1,9 @@
 #include "ftprintf.h"
 
+
+/***********************************************************\
+|			   Returns the length of a string	  			| 
+\***********************************************************/
 size_t	ft_strlen(const char *src)
 {
 	int i;

@@ -13,7 +13,6 @@ typedef struct	s_list
 
 typedef struct 	s_format
 {
-	void	*content;
 	char	flag;
 	int		width;
 	int		precision;
@@ -21,8 +20,28 @@ typedef struct 	s_format
 	char	*specifier;
 }				t_format;
 
-int	ft_printf(const char *format, ...);
 
+/**********************\
+|  		 fct.c         | 
+\**********************/
 size_t	ft_strlen(const char *src);
-int	print_mod(const char *s);
+
+/**********************\
+|  		 print.c       | 
+\**********************/
+void	print_i(int nb);
+void	print_c(char c);
+int		print_s(char *s);
+void	print_f(float nb);
+
+/**********************\
+|		 write.c       | 
+\**********************/
+int		print_mod(const char *s);
+int		print(const char *str, va_list args);
+
+/**********************\
+|		printf.c       | 
+\**********************/
+int		ft_printf(const char *format, ...);
 #endif
