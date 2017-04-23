@@ -39,30 +39,3 @@ int	main(void)
 
 	return(0);
 }
-
-	/*
-	printf("-------Escape Character 2 times-------\n");
-	print_mod("%%%%sAA");
-	printf("\n");
-	printf("%%%%sAA");
-	printf("\n######################################\n\n");
-
-	printf("-------------Print a string-----------\n");
-	//add string print
-	printf("----> add string print\n");
-	print_mod("%ssAA"); 
-	printf("\n");
-	printf("%sAA","abc");
-	printf("\n######################################\n\n");
-
-	printf("-------Print 'a' and a new line------\n");
-	print_mod("a\n");
-	printf("a\n");
-	printf("\n######################################\n\n");
-
-	printf("-------Print %% and a space after------\n");
-	print_mod("% ");
-	printf("Should not work");
-	printf("\n######################################\n\n");
-
-*/

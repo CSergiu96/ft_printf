@@ -15,25 +15,28 @@ int		print_mod(const char *s)
 		write(1, &s[i], 1);
 		i++;
 	}
-	return(i + 1);
+	return (i + 1);
 }
 
 
 /***********************************************************\
 |	   	Printing characters + one specifier at a time       |
 \***********************************************************/
-
+#include <stdio.h>
 int		print(const char *format, va_list args)
 {
 	int len;
+	t_toprint *tp;
 
 	len = 0;
 	while (len < (int)ft_strlen(format))
 	{
 		len += print_mod(format+len);
+		/*Prints the string untill the first specifier*/
 		if( *(format + len- 1 ) != '\0')
 		{
-			if(*(format + len) == 'c')
+			tp = get_format(format + len, args);
+			/*if(*(format + len) == 'c')
 			{
 				print_c(va_arg(args,int));
 				len++;
@@ -48,14 +51,28 @@ int		print(const char *format, va_list args)
            		 print_s(va_arg(args, char *));
            		 len++;
 			}
+			//////////////////////////////////////
+			//////////////remove//////////////////
+			//////////////////////////////////////
 			if(*(format + len) == 'f')
 			{
            		 print_f(va_arg(args, double));
            		 len++;
-			}
+			}*/
 		}
 
 	}
+	if (tp->flag)
+		printf("\nflaaag :%c",tp->flag);
+	if (tp->width)
+		printf("\nwidth :%d",tp->width);
+	if (tp->precision)
+		printf("\nprecision :%d",tp->precision);
+	if (tp->length)
+		printf("\nlength :%s",tp->length);
+	if (tp->specifier)
+		printf("\nspecifier :%c",tp->specifier);
+			
 	va_end(args);
-    return(len);
+    return (len);
 }

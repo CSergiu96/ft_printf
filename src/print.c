@@ -1,7 +1,7 @@
 #include "ftprintf.h"
 
 /***********************************************************\
-|				Prints a single characters					|
+|				Prints a single character					|
 \***********************************************************/
 void	print_c(char c)
 {
@@ -22,7 +22,7 @@ int		print_s(char *s)
 		write(1, &s[i], 1);
 		i++;
 	}
-	return(i);
+	return (i);
 }
 /***********************************************************\
 |					Prints a integer						|
@@ -67,5 +67,4 @@ void	print_f(float nb)
   	print_c('.');
   	print_i(otherpart);
 
-  	otherpart++;
 }
