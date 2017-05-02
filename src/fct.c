@@ -1,6 +1,21 @@
 #include "ftprintf.h"
 
 /***********************************************************\
+|			   Returns the muber of digits 		  			| 
+\***********************************************************/
+size_t	ft_intlen(int n)
+{
+	int i;
+
+	i = 0;
+	while (n)
+	{
+		i++;
+		n/=10;
+	}
+	return (i);
+}
+/***********************************************************\
 |			   Returns the length of a string	  			| 
 \***********************************************************/
 size_t	ft_strlen(const char *src)
@@ -16,7 +31,7 @@ size_t	ft_strlen(const char *src)
 /***********************************************************\
 |			   Returns 1 if it's a digit or 0 if not		| 
 \***********************************************************/
-int	ft_isdigit(int c)
+int		ft_isdigit(int c)
 {
 	if (c >= '0' && c <= '9')
 		return (1);

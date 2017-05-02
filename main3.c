@@ -5,17 +5,8 @@
 /*****************/
 int	main(void)
 {
-	/*	
-
-	printf(" %-10d \n", 1);
-	printf(" %+10d \n", 1);
-	printf(" %010d \n", 1);
-    printf(" %-#10x \n", 1);
-    
-    printf("%02d",1);
-    printf("\n%0*d", 5, 3);
-*/
-
-    ft_printf("%lld",3);
+    //ft_printf("abc%+1.23dasdf",12);
+    //printf("%s",ft_itoa_base(255,16));
+    printf("%123d",1234);
 	return(0);
 }

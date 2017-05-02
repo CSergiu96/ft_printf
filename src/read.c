@@ -1,5 +1,8 @@
 #include "ftprintf.h"
 
+/***********************************************************\
+|			Returns the width taken from the string			| 
+\***********************************************************/
 int			get_width(const char *str)
 {
 	int rez;
@@ -23,37 +26,31 @@ t_toprint	*new_tp()
 	tp = (t_toprint*)malloc(sizeof(t_toprint));
 	if (tp == NULL)
 		return (t_toprint *)(NULL);
+	tp->add = 0;
 	return (tp);
 }
 
 /***********************************************************\
 |				 Gets all the flags,widh.... 	 	 		| 
 \***********************************************************/
-#include <stdio.h>
+
 t_toprint	*get_format(const char *format, va_list args)
 {
 	int			i;
-	//
-	int a,b,c,d,e;
-	//
+
 	t_toprint 	*tp;
 
 	tp = new_tp();
 	i = 0;
-	while(format[i] != '\0')
+	i += set_flag(tp,i,format);	
+	i += set_width(tp,i,format,args);
+	i += set_precision(tp,i,format,args);
+	i += set_length(tp,i,format);
+	i += set_specifier(tp,i,format);
+	if(!tp->specifier)
 	{
-		if(!tp->flag)
-	a=		set_flag(tp,i,format);
-		if(!tp->width)
-	b=		set_width(tp,i,format,args);
-		if(!tp->precision)
-	c=		set_precision(tp,i,format,args);
-		if(!tp->length)
-	d=		set_length(tp,i,format);
-		if(!tp->specifier)
-	e=		set_specifier(tp,i,format);
-		i++;
+		print_s("\nWrong format.\n");
+		return(NULL);
 	}
-	printf("\n\n\n%d%d%d%d%d\n\n\n",a,b,c,d,e);
 	return (tp);
 }

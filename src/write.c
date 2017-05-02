@@ -36,43 +36,24 @@ int		print(const char *format, va_list args)
 		if( *(format + len- 1 ) != '\0')
 		{
 			tp = get_format(format + len, args);
-			/*if(*(format + len) == 'c')
-			{
-				print_c(va_arg(args,int));
-				len++;
-			}
-			if(*(format + len) == 'd')
-			{
-				print_i(va_arg(args,int));
-				len++;
-			}
-			if(*(format + len) == 's')
-			{
-           		 print_s(va_arg(args, char *));
-           		 len++;
-			}
-			//////////////////////////////////////
-			//////////////remove//////////////////
-			//////////////////////////////////////
-			if(*(format + len) == 'f')
-			{
-           		 print_f(va_arg(args, double));
-           		 len++;
-			}*/
-		}
+			print_tp(tp, args);
+			if(!tp)
+				exit(0);
+			len+= tp->add;
+/*
+			if (tp->flag)
+				printf("\x1b[32m""\nflag :%c",tp->flag);
+			if (tp->width)
+				printf("\x1b[33m""\nwidth :%d",tp->width);
+			if (tp->precision)
+				printf("\x1b[34m""\nprecision :%d",tp->precision);
+			if (tp->length)
+				printf("\x1b[35m""\nlength :%d",tp->length);
+			if (tp->specifier)
+				printf("\x1b[36m""\nspecifier :%c\n",tp->specifier);
+*/		}
 
 	}
-	if (tp->flag)
-		printf("\nflaaag :%c",tp->flag);
-	if (tp->width)
-		printf("\nwidth :%d",tp->width);
-	if (tp->precision)
-		printf("\nprecision :%d",tp->precision);
-	if (tp->length)
-		printf("\nlength :%s",tp->length);
-	if (tp->specifier)
-		printf("\nspecifier :%c",tp->specifier);
-			
 	va_end(args);
     return (len);
 }

@@ -12,6 +12,13 @@
 
 ##length
 
+h
+hh
+ll
+j
+z
+t
+L
 ##Specifiers:
 
 s
